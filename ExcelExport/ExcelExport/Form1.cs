@@ -76,8 +76,17 @@ namespace ExcelExport
             foreach (var lakas in lakasok)
             {
                 values[counter, 0] = lakas.Code;
-                // ...
+                values[counter, 1] = lakas.Vendor;
+                values[counter, 2] = lakas.Side;
+                values[counter, 3] = lakas.District;
+                values[counter, 4] = lakas.Elevator;
+                ? "Van"
+                : "Nincs";
+                values[counter, 5] = lakas.NumberOfRooms;
+                values[counter, 6] = lakas.FloorArea;
+                values[counter, 7] = lakas.Price;
                 values[counter, 8] = "";
+               
 
                 counter++;
             }
