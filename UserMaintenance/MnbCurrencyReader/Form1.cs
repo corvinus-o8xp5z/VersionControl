@@ -1,4 +1,5 @@
-﻿using MnbCurrencyReader.MNBServiceReference;
+﻿using MnbCurrencyReader.Entities;
+using MnbCurrencyReader.MNBServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,10 @@ namespace MnbCurrencyReader
     {
         public Form1()
         {
+            BindingList <RateData> Rates = new BindingList<RateData>();
             InitializeComponent();
             Consume();
+            dataGridView1.DataSource = Rates;
         }
 
         void Consume()
