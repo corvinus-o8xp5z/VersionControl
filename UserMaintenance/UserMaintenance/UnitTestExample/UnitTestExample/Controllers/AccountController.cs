@@ -32,6 +32,7 @@ namespace UnitTestExample.Controllers
 
             var account = new Account()
             {
+                ID = Guid.NewGuid(),
                 Email = email,
                 Password = password
             };
@@ -50,7 +51,14 @@ namespace UnitTestExample.Controllers
 
         public bool ValidatePassword(string password)
         {
+            if(Regex.IsMatch(
+                password,
+                @"^[a-zA-Z0-9]{8,}$"))
             return true;
+            else if (Regex.IsMatch(
+                password,
+                @"[a-z]."))
+                return true;
         }
     }
 }
