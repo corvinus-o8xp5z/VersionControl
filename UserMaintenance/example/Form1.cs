@@ -47,6 +47,7 @@ namespace example
             {
                 var brain = p.Brain.Clone();
                 gc.AddPlayer(brain);
+                gc.AddPlayer(brain);
             }
         }
 
