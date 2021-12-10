@@ -31,7 +31,10 @@ namespace example
 
                 gc.Start();
             }
-
+            private void Gc_GameOver (object sender)
+            {
+                generation++;
+            }
            
         }
 
