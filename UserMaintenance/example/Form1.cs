@@ -31,13 +31,25 @@ namespace example
 
                 gc.Start();
             }
-            private void Gc_GameOver (object sender)
-            {
-                generation++;
-            }
            
         }
 
-      
+        private void Gc_GameOver(object sender)
+        {
+            generation++;
+            lblGeneration.Text = generation.ToString() + ". generáció";
+            var playerList = from p in gc.GetCurrentPlayers()
+                             orderby p.GetFitness() descending
+                             select p;
+            var topPerformers = playerList.Take(populationSize / 2).ToList();
+            gc.ResetCurrentLevel();
+            foreach (var p in topPerformers)
+            {
+                var brain = p.Brain.Clone();
+                gc.AddPlayer(brain);
+            }
+        }
+
+
     }
 }
