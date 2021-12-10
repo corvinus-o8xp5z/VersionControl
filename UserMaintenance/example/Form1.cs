@@ -47,6 +47,7 @@ namespace example
                           select p;
             if (winners.Count()>0)
             {
+               winnerBrain = winners.FirstOrDefault().Brain.
                 gc.GameOver -= Gc_GameOver;
                 return;
             }
